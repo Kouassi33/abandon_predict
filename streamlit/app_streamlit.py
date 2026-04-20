@@ -5,7 +5,7 @@ import pandas as pd
 
 # Configuration de la page
 st.set_page_config(page_title="Prédiction risque d'abandon", layout="centered")
-st.title("🎓 Prédiction du risque d'abandon scolaire")
+st.title(" Prédiction du risque d'abandon scolaire")
 st.markdown("Remplissez les informations ci-dessous pour évaluer le risque d'abandon de l'étudiant.")
 
 # Formulaire de saisie
@@ -48,11 +48,11 @@ if submitted:
             prob_risk = result["probabilities"]["risk"]
             
             # Affichage des résultats
-            st.subheader("📊 Résultat de la prédiction")
+            st.subheader(" Résultat de la prédiction")
             if risk == 1:
-                st.error(f"⚠️ Risque d'abandon élevé (probabilité : {prob_risk:.1%})")
+                st.error(f" Risque d'abandon élevé (probabilité : {prob_risk:.1%})")
             else:
-                st.success(f"✅ Faible risque d'abandon (probabilité : {prob_no_risk:.1%})")
+                st.success(f" Faible risque d'abandon (probabilité : {prob_no_risk:.1%})")
             
             # Barre de probabilité
             st.progress(prob_risk)
@@ -60,7 +60,7 @@ if submitted:
             st.write(f"**Probabilité d’abandon** : {prob_risk:.1%}")
             
             # Rappel des règles métier (optionnel)
-            with st.expander("🔍 Logique métier (aide à l'interprétation)"):
+            with st.expander(" Logique métier (aide à l'interprétation)"):
                 conditions = []
                 if avg_grade < 10:
                     conditions.append("Moyenne < 10")
@@ -75,6 +75,6 @@ if submitted:
         else:
             st.error(f"Erreur API : {response.status_code} - {response.text}")
     except requests.exceptions.ConnectionError:
-        st.error("❌ Impossible de contacter l'API. Vérifiez que le serveur Flask est lancé (python app.py).")
+        st.error(" Impossible de contacter l'API. Vérifiez que le serveur Flask est lancé (python app.py).")
     except Exception as e:
         st.error(f"Erreur inattendue : {e}")
