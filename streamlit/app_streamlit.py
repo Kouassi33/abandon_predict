@@ -37,7 +37,7 @@ if submitted:
     }
     
     # Adresse de l'API (à adapter si besoin)
-    api_url = "https://votre-nom-d-app.onrender.com/predict"
+    api_url = "https://abandon-predict.onrender.com/predict"
     
     try:
         response = requests.post(api_url, json=payload, timeout=5)
