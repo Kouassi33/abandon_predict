@@ -22,7 +22,7 @@ jobs:
         run: |
           pip install -r requirements.txt
   # ou flask test, selon votre configuration
-  
+
   deploy-to-dockerhub:
     needs: build-and-test
     runs-on: ubuntu-latest
@@ -44,3 +44,4 @@ jobs:
       - name: Push Docker image
         run: |
           docker push ${{ secrets.DOCKER_USERNAME }}/flask-abandon:latest
+          
